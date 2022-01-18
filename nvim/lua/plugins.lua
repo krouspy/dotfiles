@@ -34,7 +34,7 @@ require("packer").startup(
     use "hrsh7th/cmp-vsnip"
     use "hrsh7th/vim-vsnip"
      -- UI
-    use {"kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons"}
+    use "sidebar-nvim/sidebar.nvim"
     use {"romgrk/barbar.nvim", requires = "kyazdani42/nvim-web-devicons"}
     use "p00f/nvim-ts-rainbow"
     use "hoob3rt/lualine.nvim"
@@ -50,5 +50,8 @@ require "lualine".setup {
   options = {theme = "tokyonight"}
 }
 
-require "nvim-tree".setup {}
+require "sidebar-nvim".setup {
+  open = true,
+  sections = { "files", "symbols", "diagnostics", "git" }
+}
 

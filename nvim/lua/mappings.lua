@@ -1,5 +1,4 @@
 local map = vim.api.nvim_set_keymap
-local view = require "nvim-tree.view"
 
 options = {noremap = true}
 map("i", "jj", "<esc>", options)
@@ -34,19 +33,6 @@ map("n", ",gbb", "<cmd>Telescope git_branches<cr>", options)
 map("n", ",p", "<cmd>Telescope projects<cr>", options)
 -- Telescope - Custom
 map("n", "<c-p>", "<cmd>lua project_files()<cr>", options)
-
--- Nvim-tree
-map("n", "<c-n>", ":lua toggle_tree()<cr>", options)
-
-function toggle_tree()
-  if view.win_open() then
-    require "nvim-tree".close()
-    require "bufferline.state".set_offset(0)
-  else
-    require "bufferline.state".set_offset(30, "File Explorer")
-    require "nvim-tree".find_file(true)
-  end
-end
 
 -- Fallback to find_files() if git_files() can't find a .git directory
 function project_files()
