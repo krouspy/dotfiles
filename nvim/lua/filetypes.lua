@@ -10,8 +10,8 @@ vim.cmd [[autocmd FileType rust nnoremap <leader>[ :!cargo build<cr>]]
 vim.cmd [[autocmd FileType rust nnoremap <leader>] :!cargo run<cr>]]
 vim.cmd [[autocmd FileType rust nnoremap <leader>\ :!cargo test<cr>]]
 -- solidity
-vim.cmd [[autocmd FileType solidity nnoremap <leader>[ :!yarn compile<cr>]]
-vim.cmd [[autocmd FileType solidity nnoremap <leader>] :!yarn test<cr>]]
+vim.cmd [[autocmd FileType solidity nnoremap <leader>[ :!forge build<cr>]]
+vim.cmd [[autocmd FileType solidity nnoremap <leader>] :!forge test<cr>]]
 --cairo
 vim.cmd [[autocmd FileType cairo nnoremap <leader>[ :lua cairo_compile()<cr>]]
 
