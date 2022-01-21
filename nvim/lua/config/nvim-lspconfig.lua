@@ -11,6 +11,13 @@ local on_attach = function(client, bufnr)
 
   client.resolved_capabilities.document_formatting = true
 
+  if client.resolved_capabilities.document_formatting then
+    vim.cmd [[augroup Format]]
+    vim.cmd [[autocmd! * <buffer>]]
+    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+    vim.cmd [[augroup END]]
+  end
+
   -- Mappings.
   local opts = { noremap=true, silent=true }
 
@@ -34,7 +41,7 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'rust_analyzer', 'tsserver' }
+local servers = { 'rust_analyzer', 'solidity_ls', 'tsserver' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
