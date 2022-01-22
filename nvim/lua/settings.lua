@@ -22,5 +22,10 @@ vim.bo.tabstop = 4
 vim.bo.shiftwidth = vim.bo.tabstop
 vim.bo.expandtab = true
 
+vim.g.bufferline = {
+  icon_separator_active = "|",
+  icon_separator_inactive = "|"
+}
+
 vim.cmd("set background=dark")
 vim.cmd("colorscheme onedark")
