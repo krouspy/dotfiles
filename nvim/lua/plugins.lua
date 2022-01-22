@@ -44,7 +44,10 @@ require("packer").startup(
     use {"romgrk/barbar.nvim", requires = "kyazdani42/nvim-web-devicons"}
     use "p00f/nvim-ts-rainbow"
     use "hoob3rt/lualine.nvim"
+    -- Colorschemes
     use "folke/tokyonight.nvim"
+    use "joshdick/onedark.vim"
+    use "rose-pine/neovim"
   end
 )
 
@@ -56,11 +59,11 @@ require "colorizer".setup {}
 require "lsp_signature".setup {}
 require "indent_blankline".setup {}
 require "lualine".setup {
-  options = {theme = "tokyonight"}
+  options = {theme = "onedark"}
 }
 
 require "sidebar-nvim".setup {
-  open = true,
+  -- open = true,
   initial_width = 30,
   hide_statusline = true,
   update_interval = 3000,

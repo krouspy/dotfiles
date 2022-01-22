@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/Users/krouspy/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/TimUntersberger/neogit"
   },
+  neovim = {
+    loaded = true,
+    path = "/Users/krouspy/.local/share/nvim/site/pack/packer/start/neovim",
+    url = "https://github.com/rose-pine/neovim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/krouspy/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -179,6 +184,11 @@ _G.packer_plugins = {
     path = "/Users/krouspy/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["onedark.vim"] = {
+    loaded = true,
+    path = "/Users/krouspy/.local/share/nvim/site/pack/packer/start/onedark.vim",
+    url = "https://github.com/joshdick/onedark.vim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/krouspy/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -208,6 +218,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/krouspy/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["uwu.vim"] = {
+    loaded = true,
+    path = "/Users/krouspy/.local/share/nvim/site/pack/packer/start/uwu.vim",
+    url = "https://github.com/mangeshrex/uwu.vim"
   },
   ["vim-solidity"] = {
     loaded = true,
