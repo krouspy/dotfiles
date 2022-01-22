@@ -33,6 +33,20 @@ map("n", ",gbb", "<cmd>Telescope git_branches<cr>", options)
 map("n", ",p", "<cmd>Telescope projects<cr>", options)
 -- Telescope - Custom
 map("n", "<c-p>", "<cmd>lua project_files()<cr>", options)
+-- Nvim-Sidebar
+map("n", "<c-n>", "<cmd>lua toggle_sidebar()<cr>", options)
+
+local view = require "sidebar-nvim.view"
+
+function toggle_sidebar()
+  if view.win_open({ any_tabpage = true }) then
+    require "sidebar-nvim".close()
+    require "bufferline.state".set_offset(0)
+  else
+    require "sidebar-nvim".open()
+    require "bufferline.state".set_offset(30)
+  end
+end
 
 -- Fallback to find_files() if git_files() can't find a .git directory
 function project_files()
