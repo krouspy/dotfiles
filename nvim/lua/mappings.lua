@@ -35,6 +35,8 @@ map("n", ",p", "<cmd>Telescope projects<cr>", options)
 map("n", "<c-p>", "<cmd>lua project_files()<cr>", options)
 -- Nvim-Sidebar
 map("n", "<c-n>", "<cmd>lua toggle_sidebar()<cr>", options)
+-- Neogit
+map("n", "<leader>g", "<cmd>Neogit<cr>", options)
 
 local view = require "sidebar-nvim.view"
 
