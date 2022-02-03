@@ -33,19 +33,19 @@ map("n", ",gbb", "<cmd>Telescope git_branches<cr>", options)
 map("n", ",p", "<cmd>Telescope projects<cr>", options)
 -- Telescope - Custom
 map("n", "<c-p>", "<cmd>lua project_files()<cr>", options)
--- Nvim-Sidebar
-map("n", "<c-n>", "<cmd>lua toggle_sidebar()<cr>", options)
+-- Nvim-Tree
+map("n", "<c-n>", ":lua toggle_nvim_tree()<cr>", options)
 -- Neogit
 map("n", "<leader>g", "<cmd>Neogit<cr>", options)
 
-local view = require "sidebar-nvim.view"
+local view = require "nvim-tree.view"
 
-function toggle_sidebar()
+function toggle_nvim_tree()
   if view.win_open({ any_tabpage = true }) then
-    require "sidebar-nvim".close()
+    require "nvim-tree".close()
     require "bufferline.state".set_offset(0)
   else
-    require "sidebar-nvim".open()
+    require "nvim-tree".find_file(true)
     require "bufferline.state".set_offset(30)
   end
 end
