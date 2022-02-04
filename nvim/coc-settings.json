@@ -1,0 +1,19 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "solidity",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "markdown",
+    "json"
+  ],
+  "languageserver": {
+    "cairo": {
+      "module": "/home/raeden/code/lsp/node_modules/cairo-ls/out/server.js",
+      "args": ["--node-ipc"],
+      "filetypes": ["cairo"],
+      "rootPatterns": [".git/"]
+    }
+  }
+}
