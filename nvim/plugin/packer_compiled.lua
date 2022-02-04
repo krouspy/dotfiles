@@ -174,6 +174,11 @@ _G.packer_plugins = {
     path = "/home/raeden/.local/share/nvim/site/pack/packer/start/tagbar",
     url = "https://github.com/preservim/tagbar"
   },
+  ["telescope-coc.nvim"] = {
+    loaded = true,
+    path = "/home/raeden/.local/share/nvim/site/pack/packer/start/telescope-coc.nvim",
+    url = "https://github.com/fannheyward/telescope-coc.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/raeden/.local/share/nvim/site/pack/packer/start/telescope.nvim",

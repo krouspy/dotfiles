@@ -24,6 +24,7 @@ require("packer").startup(
 
     -- LSP
     use {"neoclide/coc.nvim", branch = "release"}
+    use "fannheyward/telescope-coc.nvim"
     -- Languages
     use "tomlion/vim-solidity"
     use "cespare/vim-toml"

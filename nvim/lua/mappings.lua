@@ -20,9 +20,10 @@ map("n", ",fs", "<cmd>Telescope grep_string<cr>", options)
 map("n", ",fn", "<cmd>Telescope help-tags<cr>", options)
 map("n", ",b", "<cmd>Telescope buffers<cr>", options)
 -- Telescope - LSP
-map("n", ",gd", "<cmd>Telescope lsp_definitions<cr>", options)
-map("n", ",gi", "<cmd>Telescope lsp_implementations<cr>", options)
-map("n", ",r", "<cmd>Telescope lsp_references<cr>", options)
+map("n", "gd", "<cmd>Telescope coc definitions<cr>", options)
+map("n", "gi", "<cmd>Telescope coc implementations<cr>", options)
+map("n", ",r", "<cmd>Telescope coc references<cr>", options)
+map("n", ",dd", "<cmd>Telescope coc diagnostics<cr>", options)
 map("n", ",NN", "<cmd>Telescope keymaps<cr>", options)
 -- Telescope - Git
 map("n", ",gc", "<cmd>Telescope git_commits<cr>", options)
