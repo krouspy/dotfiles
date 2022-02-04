@@ -41,7 +41,7 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'rust_analyzer', 'solidity_ls', 'tsserver' }
+local servers = { 'rust_analyzer', 'solidity_ls', 'tsserver', 'pyright' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
