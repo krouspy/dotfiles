@@ -1,6 +1,4 @@
 require "config.telescope"
-require "config.nvim-lspconfig"
-require "config.nvim-cmp"
 require "config.nvim-treesitter"
 
 require("packer").startup(
@@ -22,23 +20,14 @@ require("packer").startup(
       requires = "nvim-lua/plenary.nvim"
     }
     use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
-    use "ray-x/lsp_signature.nvim"
     use "danymat/neogen"
 
     -- LSP
-    use "neovim/nvim-lspconfig"
-    use "onsails/lspkind-nvim"
-    use "hrsh7th/nvim-cmp"
-		use 'hrsh7th/cmp-buffer'
-		use 'hrsh7th/cmp-path'
-		use 'hrsh7th/cmp-cmdline'
-    use "hrsh7th/cmp-nvim-lsp"
+    use {"neoclide/coc.nvim", branch = "release"}
+    use "fannheyward/telescope-coc.nvim"
     -- Languages
     use "tomlion/vim-solidity"
     use "cespare/vim-toml"
-    -- Snippets
-    use "hrsh7th/cmp-vsnip"
-    use "hrsh7th/vim-vsnip"
      -- UI
     use "norcalli/nvim-colorizer.lua"
     use {"romgrk/barbar.nvim", requires = "kyazdani42/nvim-web-devicons"}
@@ -60,7 +49,6 @@ require "neogen".setup {
   enabled = true
 }
 
-require "lsp_signature".setup {}
 require "indent_blankline".setup {}
 require "lualine".setup {
   options = {theme = "onedark"}
