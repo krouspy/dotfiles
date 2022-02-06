@@ -1,4 +1,4 @@
-vim.cmd [[autocmd FileType javascript,javascriptreact,typescript,typescriptreact,lua,json,html,markdown setlocal ts=2 sts=2 sw=2]]
+vim.cmd [[autocmd FileType javascript,javascriptreact,typescript,typescriptreact,graphql,lua,json,html,markdown setlocal ts=2 sts=2 sw=2]]
 vim.cmd [[autocmd FileType solidity,rust,cairo setlocal ts=4 sts=4 sw=4]]
 
 -- javascript
