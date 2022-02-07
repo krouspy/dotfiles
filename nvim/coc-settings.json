@@ -9,6 +9,11 @@
     "json"
   ],
   "languageserver": {
+    "rust": {
+      "command": "rust-analyzer",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    },
     "cairo": {
       "module": "~/code/lsp/node_modules/cairo-ls/out/server.js",
       "args": ["--node-ipc"],
