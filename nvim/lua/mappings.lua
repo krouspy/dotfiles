@@ -1,6 +1,6 @@
 local map = vim.api.nvim_set_keymap
 
-options = {noremap = true}
+local options = {noremap = true}
 map("i", "jj", "<esc>", options)
 map("i", "jk", "<esc>", options)
 map("n", "j", "gj", options)
@@ -42,8 +42,8 @@ map("n", "<leader>g", "<cmd>Neogit<cr>", options)
 local view = require "nvim-tree.view"
 
 function toggle_nvim_tree()
-  if view.win_open({ any_tabpage = true }) then
-    require "nvim-tree".close()
+  if view.win_open() then
+    vim.cmd(":NvimTreeClose")
     require "bufferline.state".set_offset(0)
   else
     require "nvim-tree".find_file(true)

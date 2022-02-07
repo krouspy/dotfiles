@@ -15,10 +15,3 @@ vim.cmd [[autocmd FileType solidity nnoremap <leader>] :!forge clean && forge te
 --cairo
 vim.cmd [[autocmd FileType cairo nnoremap <leader>[ :!nile compile<cr>]]
 vim.cmd [[autocmd FileType cairo nnoremap <leader>] :!nile test<cr>]]
-
-function cairo_compile()
-  local filename = vim.fn.expand("%:t:r")
-  local res = filename .. "_compiled.json"
-  vim.cmd(":!cairo-compile % --output " .. res)
-  print("Compiled!")
-end
