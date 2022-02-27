@@ -7,6 +7,7 @@ vim.o.hlsearch = true
 vim.o.incsearch = true
 vim.o.ignorecase = true
 vim.o.termguicolors = true
+vim.o.cursorline = true -- required for modes.nvim
 vim.g.mapleader = " "
 
 -- needed for nvim-cmp

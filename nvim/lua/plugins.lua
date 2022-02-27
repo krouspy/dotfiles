@@ -21,6 +21,7 @@ require("packer").startup(
     }
     use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
     use "danymat/neogen"
+    use "mvllow/modes.nvim"
 
     -- LSP
     use {"neoclide/coc.nvim", branch = "release"}
@@ -28,6 +29,7 @@ require("packer").startup(
     -- Languages
     use "tomlion/vim-solidity"
     use "cespare/vim-toml"
+    use "pantharshit00/vim-prisma"
      -- UI
     use "norcalli/nvim-colorizer.lua"
     use {"romgrk/barbar.nvim", requires = "kyazdani42/nvim-web-devicons"}
@@ -47,6 +49,10 @@ require "nvim-autopairs".setup {}
 require "colorizer".setup {}
 require "neogen".setup {
   enabled = true
+}
+require "modes".setup {
+  line_opacity = 0.1,
+  set_cursor = true,
 }
 
 require "indent_blankline".setup {}
