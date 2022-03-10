@@ -51,7 +51,7 @@ require "neogen".setup {
   enabled = true
 }
 require "modes".setup {
-  line_opacity = 0.1,
+  line_opacity = 0.3,
   set_cursor = true,
 }
 

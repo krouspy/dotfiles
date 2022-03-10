@@ -20,5 +20,6 @@
       "filetypes": ["cairo"],
       "rootPatterns": [".git/"]
     }
-  }
+  },
+  "Lua.telemetry.enable": false
 }
