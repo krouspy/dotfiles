@@ -41,7 +41,7 @@ map("n", "<leader>g", "<cmd>Neogit<cr>", options)
 
 map("n", "K", ":call CocActionAsync('doHover')<cr>", options)
 map("n", "<leader>r", ":call CocActionAsync('rename')<cr>", options)
-map("n", ",ca", ":CocAction<cr>", options)
+map("n", "<leader>a", ":CocAction<cr>", options)
 
 local view = require "nvim-tree.view"
 
