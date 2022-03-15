@@ -28,5 +28,8 @@ vim.g.bufferline = {
   icon_separator_inactive = "|"
 }
 
+vim.cmd("set splitright")
+vim.cmd("set splitbelow")
+
 vim.cmd("set background=dark")
 vim.cmd("colorscheme onedark")
