@@ -1,10 +1,13 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
+    "rust",
     "solidity",
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact",
+    "html",
+    "css",
     "markdown",
     "json"
   ],
@@ -15,11 +18,10 @@
       "rootPatterns": ["Cargo.toml"]
     },
     "cairo": {
-      "module": "~/code/lsp/node_modules/cairo-ls/out/server.js",
+      "module": "~/packages/cairo-lsp/node_modules/cairo-ls/out/server.js",
       "args": ["--node-ipc"],
       "filetypes": ["cairo"],
       "rootPatterns": [".git/"]
     }
-  },
-  "Lua.telemetry.enable": false
+  }
 }
