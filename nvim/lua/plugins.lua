@@ -22,10 +22,12 @@ require("packer").startup(
     use { "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" }
     use "danymat/neogen"
     use "mvllow/modes.nvim"
+    use "christoomey/vim-tmux-navigator"
 
     -- LSP
     use {"neoclide/coc.nvim", branch = "release"}
     use "fannheyward/telescope-coc.nvim"
+    use "github/copilot.vim"
     -- Languages
     use "tomlion/vim-solidity"
     use "cespare/vim-toml"
@@ -35,11 +37,10 @@ require("packer").startup(
     use {"romgrk/barbar.nvim", requires = "kyazdani42/nvim-web-devicons"}
     use "p00f/nvim-ts-rainbow"
     use "hoob3rt/lualine.nvim"
-    use "kyazdani42/nvim-tree.lua"
+    use {"kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons"}
     -- Colorschemes
     use "folke/tokyonight.nvim"
     use "joshdick/onedark.vim"
-    use "rose-pine/neovim"
   end
 )
 
@@ -58,6 +59,14 @@ require "modes".setup {
 require "indent_blankline".setup {}
 require "lualine".setup {
   options = {theme = "onedark"}
+}
+
+-- Apply only on Ubuntu, font icons don't work properly
+vim.g.nvim_tree_icons = {
+  folder = {
+    arrow_open = "",
+    open = ""
+  }
 }
 
 require'nvim-tree'.setup {
