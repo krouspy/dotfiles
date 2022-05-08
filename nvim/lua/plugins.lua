@@ -7,6 +7,7 @@ require("packer").startup(
     use "wbthomason/packer.nvim"
     -- Editor
     use "junegunn/fzf"
+    use "junegunn/fzf.vim"
     use "b3nj5m1n/kommentary"
     use "windwp/nvim-autopairs"
     use "windwp/nvim-ts-autotag"
@@ -23,11 +24,11 @@ require("packer").startup(
     use "danymat/neogen"
     use "mvllow/modes.nvim"
     use "christoomey/vim-tmux-navigator"
+    use "kdheepak/lazygit.nvim"
 
     -- LSP
     use {"neoclide/coc.nvim", branch = "release"}
     use "fannheyward/telescope-coc.nvim"
-    use "github/copilot.vim"
     -- Languages
     use "tomlion/vim-solidity"
     use "cespare/vim-toml"
@@ -62,25 +63,27 @@ require "lualine".setup {
 }
 
 -- Apply only on Ubuntu, font icons don't work properly
+--[[
 vim.g.nvim_tree_icons = {
   folder = {
     arrow_open = "",
     open = ""
   }
 }
+--]]
 
 require'nvim-tree'.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
   open_on_setup       = false,
-  auto_close          = false,
+  -- auto_close          = false,
   open_on_tab         = false,
   hijack_cursor       = false,
   update_cwd          = false,
-  update_to_buf_dir   = {
+  --[[ update_to_buf_dir   = {
     enable = true,
     auto_open = true,
-  },
+  }, ]]
   diagnostics = {
     enable = false,
     icons = {
@@ -113,7 +116,7 @@ require'nvim-tree'.setup {
     height = 30,
     hide_root_folder = false,
     side = 'left',
-    auto_resize = false,
+    -- auto_resize = false,
     mappings = {
       custom_only = false,
       list = {}
@@ -127,4 +130,3 @@ require'nvim-tree'.setup {
     require_confirm = true
   }
 }
-
