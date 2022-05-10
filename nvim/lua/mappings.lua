@@ -20,10 +20,10 @@ map("n", ",fs", "<cmd>Telescope grep_string<cr>", options)
 map("n", ",fn", "<cmd>Telescope help-tags<cr>", options)
 map("n", ",b", "<cmd>Telescope buffers<cr>", options)
 -- Telescope - LSP
-map("n", "gd", "<cmd>Telescope coc definitions<cr>", options)
-map("n", "gi", "<cmd>Telescope coc implementations<cr>", options)
-map("n", ",r", "<cmd>Telescope coc references<cr>", options)
-map("n", ",dd", "<cmd>Telescope coc diagnostics<cr>", options)
+-- map("n", "gd", "<cmd>Telescope coc definitions<cr>", options)
+-- map("n", "gi", "<cmd>Telescope coc implementations<cr>", options)
+map("n", ",r", ":lua require'telescope.builtin'.lsp_references()<cr>", options)
+-- map("n", ",dd", "<cmd>Telescope coc diagnostics<cr>", options)
 map("n", ",NN", "<cmd>Telescope keymaps<cr>", options)
 -- Telescope - Git
 map("n", ",gc", "<cmd>Telescope git_commits<cr>", options)
@@ -36,12 +36,8 @@ map("n", ",p", "<cmd>Telescope projects<cr>", options)
 map("n", "<c-p>", "<cmd>lua project_files()<cr>", options)
 -- Nvim-Tree
 map("n", "<c-n>", ":lua toggle_nvim_tree()<cr>", options)
--- Neogit
-map("n", "<leader>g", "<cmd>Neogit<cr>", options)
-
-map("n", "K", ":call CocActionAsync('doHover')<cr>", options)
-map("n", "<leader>r", ":call CocActionAsync('rename')<cr>", options)
-map("n", "<leader>a", ":CocAction<cr>", options)
+-- Lazygit
+map("n", "<leader>g", "<cmd>LazyGit<cr>", options)
 
 local view = require "nvim-tree.view"
 

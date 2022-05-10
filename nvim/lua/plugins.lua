@@ -1,8 +1,15 @@
 require "config.telescope"
 require "config.nvim-treesitter"
+require "config.lsp"
 
-require("packer").startup(
-  function()
+local present, packer = pcall(require, "packer")
+
+if not present then
+  return
+end
+
+packer.startup(
+  function(use)
     -- Packages
     use "wbthomason/packer.nvim"
     -- Editor
@@ -25,10 +32,19 @@ require("packer").startup(
     use "mvllow/modes.nvim"
     use "christoomey/vim-tmux-navigator"
     use "kdheepak/lazygit.nvim"
+    use "folke/trouble.nvim"
 
     -- LSP
-    use {"neoclide/coc.nvim", branch = "release"}
-    use "fannheyward/telescope-coc.nvim"
+    use "neovim/nvim-lspconfig"
+    use "hrsh7th/nvim-cmp" -- Autocompletion plugin
+    use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
+    use "hrsh7th/cmp-nvim-lsp-signature-help"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-cmdline"
+    use "saadparwaiz1/cmp_luasnip" -- Snippets source for nvim-cmp
+    use "L3MON4D3/LuaSnip" -- Snippets plugin
+    use "jose-elias-alvarez/null-ls.nvim"
+    use "onsails/lspkind.nvim"
     -- Languages
     use "tomlion/vim-solidity"
     use "cespare/vim-toml"
@@ -42,6 +58,7 @@ require("packer").startup(
     -- Colorschemes
     use "folke/tokyonight.nvim"
     use "joshdick/onedark.vim"
+    use "rmehri01/onenord.nvim"
   end
 )
 
@@ -62,15 +79,7 @@ require "lualine".setup {
   options = {theme = "onedark"}
 }
 
--- Apply only on Ubuntu, font icons don't work properly
---[[
-vim.g.nvim_tree_icons = {
-  folder = {
-    arrow_open = "",
-    open = ""
-  }
-}
---]]
+require "trouble".setup {}
 
 require'nvim-tree'.setup {
   disable_netrw       = true,
@@ -128,5 +137,13 @@ require'nvim-tree'.setup {
   trash = {
     cmd = "trash",
     require_confirm = true
+  }
+}
+
+-- Apply only on Ubuntu, font icons don't work properly
+vim.g.nvim_tree_icons = {
+  folder = {
+    arrow_open = '▼',
+    arrow_closed = '▶'
   }
 }
