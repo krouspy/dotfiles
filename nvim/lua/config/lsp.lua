@@ -119,7 +119,7 @@ cmp.setup {
     { name = "nvim_lsp" },
 		{ name = "nvim_lsp_signature_help" },
     { name = "buffer" },
-    { name = "luasnip" }
+    { name = "luasnip" },
   },
 }
 
@@ -132,6 +132,13 @@ cmp.setup.cmdline(':', {
 	}, {
 		{ name = 'cmdline' }
 	})
+})
+
+cmp.setup.cmdline('/', {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = 'buffer' }
+	}
 })
 
 local present, null_ls  = pcall(require, "null-ls")

@@ -43,6 +43,7 @@ packer.startup(
     use "hrsh7th/cmp-cmdline"
     use "saadparwaiz1/cmp_luasnip" -- Snippets source for nvim-cmp
     use "L3MON4D3/LuaSnip" -- Snippets plugin
+		use "rafamadriz/friendly-snippets"
     use "jose-elias-alvarez/null-ls.nvim"
     use "onsails/lspkind.nvim"
     -- Languages
@@ -78,6 +79,7 @@ require "indent_blankline".setup {}
 require "lualine".setup {
   options = {theme = "onedark"}
 }
+require "luasnip.loaders.from_vscode".lazy_load()
 
 require "trouble".setup {}
 
