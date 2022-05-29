@@ -87,14 +87,9 @@ require'nvim-tree'.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
   open_on_setup       = false,
-  -- auto_close          = false,
   open_on_tab         = false,
   hijack_cursor       = false,
   update_cwd          = false,
-  --[[ update_to_buf_dir   = {
-    enable = true,
-    auto_open = true,
-  }, ]]
   diagnostics = {
     enable = false,
     icons = {
@@ -136,16 +131,18 @@ require'nvim-tree'.setup {
     relativenumber = false,
     signcolumn = "yes"
   },
+  renderer = {
+    icons = {
+      glyphs = {
+        folder = {
+          arrow_open = '▼',
+          arrow_closed = "▶"
+        }
+      }
+    }
+  },
   trash = {
     cmd = "trash",
     require_confirm = true
-  }
-}
-
--- Apply only on Ubuntu, font icons don't work properly
-vim.g.nvim_tree_icons = {
-  folder = {
-    arrow_open = '▼',
-    arrow_closed = '▶'
   }
 }
