@@ -32,4 +32,6 @@ vim.cmd("set splitright")
 vim.cmd("set splitbelow")
 
 vim.cmd("set background=dark")
-vim.cmd("colorscheme onedark")
+-- vim.cmd("colorscheme onedark")
+vim.g.catppuccin_flavour = "macchiato"
+vim.cmd("colorscheme catppuccin")
