@@ -14,30 +14,23 @@ map("n", "<leader>p", ":BufferPrevious<cr>", options)
 map("n", "<leader>c", ":BufferClose<cr>", options)
 map("n", "<c-\\>", ":vsplit<cr>", options)
 -- Telescope
-map("n", ",fb", "<cmd>Telescope file_browser<cr>", options)
-map("n", ",fl", "<cmd>Telescope live_grep<cr>", options)
-map("n", ",fs", "<cmd>Telescope grep_string<cr>", options)
-map("n", ",fn", "<cmd>Telescope help-tags<cr>", options)
 map("n", ",b", "<cmd>Telescope buffers<cr>", options)
+map("n", ",fl", "<cmd>Telescope live_grep<cr>", options)
+map("n", ",fn", "<cmd>Telescope help_tags<cr>", options)
 -- Telescope - LSP
--- map("n", "gd", "<cmd>Telescope coc definitions<cr>", options)
--- map("n", "gi", "<cmd>Telescope coc implementations<cr>", options)
 map("n", ",r", ":lua require'telescope.builtin'.lsp_references()<cr>", options)
--- map("n", ",dd", "<cmd>Telescope coc diagnostics<cr>", options)
 map("n", ",NN", "<cmd>Telescope keymaps<cr>", options)
 -- Telescope - Git
 map("n", ",gc", "<cmd>Telescope git_commits<cr>", options)
 map("n", ",gbc", "<cmd>Telescope git_bcommits<cr>", options)
 map("n", ",gs", "<cmd>Telescope git_status<cr>", options)
 map("n", ",gbb", "<cmd>Telescope git_branches<cr>", options)
--- Telescope - Extensions
-map("n", ",p", "<cmd>Telescope projects<cr>", options)
 -- Telescope - Custom
 map("n", "<c-p>", "<cmd>lua project_files()<cr>", options)
 -- Nvim-Tree
 map("n", "<c-n>", ":lua toggle_nvim_tree()<cr>", options)
--- Lazygit
-map("n", "<leader>g", "<cmd>LazyGit<cr>", options)
+-- Neogit
+map("n", "<leader>g", "<cmd>Neogit<cr>", options)
 
 local view = require "nvim-tree.view"
 
