@@ -2,6 +2,7 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
+require "nvim-lsp-installer".setup {}
 local lspconfig = require('lspconfig')
 local opts = { noremap=true, silent=true }
 
@@ -25,7 +26,8 @@ local on_attach = function(client, bufnr)
 end
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'tsserver', 'jsonls', 'tailwindcss' }
+local servers = { 'solidity_ls', 'tsserver', 'jsonls', 'tailwindcss', 'cssls', 'jdtls', 'pyright' }
+-- local servers = { 'solidity_ls', 'jsonls', 'tailwindcss', 'flow', 'cssls', 'pyright' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -33,11 +35,26 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+local dap = require('dap')
+dap.adapters.java = function(callback)
+  vim.lsp.buf_request(
+    0,
+    "workspace/executeCommand",
+    { command = "vscode.java.startDebugSession" },
+    function(err, res, _, _)
+      if err then
+          return
+      end
+      callback({ type = "server", host = "127.0.0.1", port = res })
+    end
+  )
+end
+
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-require'lspconfig'.sumneko_lua.setup {
+require 'lspconfig'.sumneko_lua.setup {
   settings = {
     Lua = {
       runtime = {
@@ -80,7 +97,7 @@ cmp.setup {
   mapping = cmp.mapping.preset.insert({
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-Space>'] = cmp.mapping.complete(true),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
@@ -151,9 +168,8 @@ end
 null_ls.setup {
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
-      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_clear_autocmds({ buffer = bufnr })
       vim.api.nvim_create_autocmd("BufWritePre", {
-        group = augroup,
         buffer = bufnr,
         callback = function()
           -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead

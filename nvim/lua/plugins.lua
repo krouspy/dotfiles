@@ -23,6 +23,7 @@ packer.startup(
     use {"lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim"}
     use "lukas-reineke/indent-blankline.nvim"
     use "tpope/vim-surround"
+    use "tpope/vim-fugitive"
     use {
       "nvim-telescope/telescope.nvim",
       requires = "nvim-lua/plenary.nvim"
@@ -33,6 +34,9 @@ packer.startup(
     use "christoomey/vim-tmux-navigator"
     use "kdheepak/lazygit.nvim"
     use "folke/trouble.nvim"
+    use "sindrets/diffview.nvim"
+    use "Maan2003/lsp_lines.nvim"
+		use "mfussenegger/nvim-dap"
 
     -- LSP
     use "neovim/nvim-lspconfig"
@@ -47,16 +51,18 @@ packer.startup(
 		use "rafamadriz/friendly-snippets"
     use "jose-elias-alvarez/null-ls.nvim"
     use "onsails/lspkind.nvim"
+    use "williamboman/nvim-lsp-installer"
     -- Languages
     use "tomlion/vim-solidity"
     use "cespare/vim-toml"
     use "pantharshit00/vim-prisma"
      -- UI
-    use "norcalli/nvim-colorizer.lua"
+    -- use "norcalli/nvim-colorizer.lua"
     use {"romgrk/barbar.nvim", requires = "kyazdani42/nvim-web-devicons"}
     use "p00f/nvim-ts-rainbow"
     use "hoob3rt/lualine.nvim"
     use {"kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons"}
+    -- use "rcarriga/nvim-notify"
     -- Colorschemes
     use "folke/tokyonight.nvim"
     use "joshdick/onedark.vim"
@@ -68,7 +74,7 @@ packer.startup(
 require "neogit".setup {}
 require "gitsigns".setup {}
 require "nvim-autopairs".setup {}
-require "colorizer".setup {}
+-- require "colorizer".setup {}
 require "neogen".setup {
   enabled = true
 }
@@ -79,11 +85,18 @@ require "modes".setup {
 
 require "indent_blankline".setup {}
 require "lualine".setup {
-  options = {theme = "onedark"}
+  options = {theme = "onedark"},
 }
 require "luasnip.loaders.from_vscode".lazy_load()
 
 require "trouble".setup {}
+require "diffview".setup {}
+
+-- require "lsp_lines".setup()
+
+vim.diagnostic.config({
+  virtual_text = false,
+})
 
 require'nvim-tree'.setup {
   disable_netrw       = true,

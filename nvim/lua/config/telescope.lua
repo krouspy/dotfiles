@@ -68,7 +68,7 @@ M.setup = function(override_flag)
 
    telescope.setup(default)
 
-   local extensions = { "themes", "terms", "coc" }
+   local extensions = { "themes", "terms" }
 
    pcall(function()
       for _, ext in ipairs(extensions) do
